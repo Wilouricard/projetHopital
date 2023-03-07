@@ -4,28 +4,29 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import questJdbc.dao.FormationDaoImpl;
 
 public class Context {
-	
-	static { 
+
+	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	private static Context singleton=null; 
-	
+
+	private static Context singleton = null;
+
 	public static Context getContext() {
-		if(singleton==null) { 
-			singleton=new Context();
+		if (singleton == null) {
+			singleton = new Context();
 		}
 		return singleton;
 	}
 
 	private Connection connection;
-	
+
 	public Connection getConnection() {
 		return connection;
 	}
@@ -37,16 +38,34 @@ public class Context {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	public static void destroy() {
-		if(singleton!=null) {
-			singleton.close();
-			singleton=null;
-		}
+
+	private static DaoVisiteImpl daoVisite = new DaoVisiteImpl();
+
+	public static DaoVisiteImpl getDaoVisite() {
+		return daoVisite;
 	}
 	
+	private static DaoCompteImpl daoCompte = new DaoCompteImpl();
+
+	public static DaoCompteImpl getDaoCompte() {
+		return daoCompte;
+	}
+	
+	
+	private static DaoPatientImpl daoPatient = new DaoPatientImpl();
+
+	public static DaoPatientImpl getDaoPatient() {
+		return daoPatient;
+	}
+
+	
+	public static void destroy() {
+		if (singleton != null) {
+			singleton.close();
+			singleton = null;
+		}
+	}
+
 	private void close() {
 		try {
 			connection.close();
