@@ -16,14 +16,14 @@ public class Visite {
 		this.id_compte = id_compte;
 	}
 	
-//	public Visite(int numero_visite, Patient id_patient, Compte id_compte, int cout_visite, int salle, LocalDate date) {
-//		this.numero_visite = numero_visite;
-//		this.id_patient = id_patient;
-//		this.id_compte = id_compte;
-//		this.cout_visite = cout_visite;
-//		this.salle = salle;
-//		this.date = date;
-//	}
+	public Visite(int numero_visite, Patient id_patient, Compte id_compte, int cout_visite, int salle, LocalDate date) {
+		this.numero_visite = numero_visite;
+		this.id_patient = id_patient;
+		this.id_compte = id_compte;
+		this.cout_visite = cout_visite;
+		this.salle = salle;
+		this.date = date;
+	}
 	
 
 

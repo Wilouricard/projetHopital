@@ -16,7 +16,7 @@ import hopital.model.Visite;
 public class DaoVisiteImpl implements DaoVisite{
 	
 	private Visite getVisite(ResultSet rs) throws SQLException {
-		return new Visite(rs.getString("numero_visite"),rs.getClass().getName().valueOf("id_patient"),rs.getClass().getName().valueOf("id_medecin"),rs.getString("cout_visite"),rs.getString("salle"),rs.getDate("date_visite"));
+		return new Visite(rs.getString("numero_visite"),null,null,rs.getString("cout_visite"),rs.getString("salle"),rs.getDate("date_visite"));
 	}
 
 	public void insert(Visite obj) {
