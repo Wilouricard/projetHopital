@@ -19,6 +19,9 @@ public class Compte {
     	this.typeCompte = typeCompte;
     }
     
+    public Compte(int id) {
+        this.id_compte = id;
+    }
     
 
     public int getId() {
